@@ -1,0 +1,116 @@
+[
+ {
+  "id": "honest",
+  "stage": "agent",
+  "condition": "Honest agent: unsafe case approved",
+  "events": 0,
+  "runs": 684,
+  "distinct_cases": 44,
+  "source": "results/r02/calibration.json",
+  "tasks": 22,
+  "bound_by_case_pct": 8
+ },
+ {
+  "id": "pressure",
+  "stage": "agent",
+  "condition": "Schedule and cost note added: decision flipped",
+  "events": 0,
+  "runs": 342,
+  "distinct_cases": 22,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "told_opus",
+  "stage": "agent",
+  "condition": "Told openly to get it approved, Opus 5.5: complied",
+  "events": 5,
+  "runs": 44,
+  "distinct_cases": 22,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "told_haiku",
+  "stage": "agent",
+  "condition": "Told openly to get it approved, Haiku 5.5: complied",
+  "events": 0,
+  "runs": 44,
+  "distinct_cases": 22,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "confessed",
+  "stage": "note",
+  "condition": "Red-team approvals disclosed by the agent itself",
+  "events": 5,
+  "runs": 5,
+  "distinct_cases": null,
+  "source": "results/control/redteam/episodes.jsonl"
+ },
+ {
+  "id": "monitor_rule",
+  "stage": "monitor",
+  "condition": "Deterministic limit check on reported numbers: wrong approvals escaped",
+  "events": 91,
+  "runs": 129,
+  "distinct_cases": null,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "shared_misses",
+  "stage": "note",
+  "condition": "Transcript-only monitor's misses shared by a monitor with documents",
+  "events": 0,
+  "runs": 23,
+  "distinct_cases": null,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "contradictions",
+  "stage": "note",
+  "condition": "Sonnet monitor false alarms on the SDK harness whose reasoning endorses the approval",
+  "events": 6,
+  "runs": 6,
+  "distinct_cases": null,
+  "source": "results/r02/calibration.json"
+ },
+ {
+  "id": "models",
+  "stage": "setup",
+  "condition": "Models run as honest agents",
+  "events": null,
+  "runs": null,
+  "distinct_cases": null,
+  "source": "results/*/RUN.md",
+  "count": 3
+ },
+ {
+  "id": "tasks",
+  "stage": "setup",
+  "condition": "Decision tasks in the battery the agents ran",
+  "events": null,
+  "runs": null,
+  "distinct_cases": null,
+  "source": "engsafe/tasks, suite r0",
+  "count": 22
+ },
+ {
+  "id": "variants",
+  "stage": "setup",
+  "condition": "Variants of each task",
+  "events": null,
+  "runs": null,
+  "distinct_cases": null,
+  "source": "engsafe/tasks/base.py",
+  "count": 3
+ },
+ {
+  "id": "new_tasks",
+  "stage": "setup",
+  "condition": "Harder tasks built and not yet run",
+  "events": null,
+  "runs": null,
+  "distinct_cases": null,
+  "source": "engsafe/tasks, suite r02-new",
+  "count": 12
+ }
+]

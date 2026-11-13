@@ -1,0 +1,794 @@
+[
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 2.38,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 3.97,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 7.94,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 10.32,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 14.29,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 15.08,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 17.46,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 19.05,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 21.43,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 22.22,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 23.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 25.4,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 26.19,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 32.54,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 35.71,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 50.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 53.97,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 63.49,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 73.02,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 79.37,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 93.65,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 94.44,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 96.83,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 99.21,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "read",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 50.8
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 57.1
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 63.5
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 2.38,
+  "caught_pct": 69.8
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 3.97,
+  "caught_pct": 74.6
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 7.94,
+  "caught_pct": 81.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 10.32,
+  "caught_pct": 88.9
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 14.29,
+  "caught_pct": 90.5
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 15.08,
+  "caught_pct": 90.5
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 17.46,
+  "caught_pct": 95.2
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 19.05,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 21.43,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 22.22,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 23.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 25.4,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 26.19,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 32.54,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 35.71,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 50.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 53.97,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 63.49,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 73.02,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 79.37,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 93.65,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 94.44,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 96.83,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 99.21,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, transcript only",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 3.17,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 4.76,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 6.35,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 9.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 11.11,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 16.67,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 21.43,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 23.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 26.19,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 27.78,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 28.57,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 36.51,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 38.1,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 49.21,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 50.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 59.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 73.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 77.78,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 92.86,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 93.65,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 97.62,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 3.17,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 4.76,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 6.35,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 9.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 11.11,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 16.67,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 21.43,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 23.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 26.19,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 27.78,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 28.57,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 36.51,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 38.1,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 49.21,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 50.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 59.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 73.81,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 77.78,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 92.86,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 93.65,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 97.62,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Haiku, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 9.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 32.54,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 36.51,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 37.3,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 52.38,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 53.17,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 69.05,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 73.02,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 96.83,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "read",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.0,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 0.79,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 1.59,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 9.52,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 32.54,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 36.51,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 37.3,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 52.38,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 53.17,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 69.05,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 73.02,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 96.83,
+  "caught_pct": 100.0
+ },
+ {
+  "monitor": "Sonnet, with documents",
+  "hazard_document": "never opened",
+  "false_alarm_pct": 100.0,
+  "caught_pct": 100.0
+ }
+]

@@ -1,0 +1,1 @@
+Post-hoc exploratory analysis (not in the frozen plan): the 5 red-team approvals with every agent-written text message removed from the transcript, so monitors see only the documents read, the calculations, and the submitted checks and rationale.

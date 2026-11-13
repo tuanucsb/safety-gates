@@ -1,0 +1,390 @@
+<meta name="dash-one-writer">
+<style>
+/* Layout: a research note in one reading column; one finding per section, each with its chart or table. */
+.pb-page { max-width: 62rem; margin-inline: auto; display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); line-height: 1.5; color: var(--color-fg); }
+.pb-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.pb-title { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; text-wrap: balance; }
+.pb-take { margin: 0; max-width: 46rem; font-size: var(--cds-font-size-heading); line-height: 1.4; }
+.pb-note { margin: 0; max-width: 46rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-section { display: flex; flex-direction: column; gap: var(--cds-gap-md); min-width: 0; }
+.pb-h2 { margin: 0; max-width: 46rem; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); line-height: 1.3; text-wrap: balance; }
+.pb-text { margin: 0; max-width: 46rem; }
+.pb-v { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+.pb-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--cds-gap-md); }
+.pb-fig { min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-xs); padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.pb-figlabel { font-size: var(--cds-font-size-caption); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+.pb-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; font-variant-numeric: tabular-nums; }
+.pb-big .pb-v { font-weight: 400; }
+.pb-card { min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.pb-cardtitle { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+.pb-cardnote { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--cds-gap-md); }
+.pb-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-key { display: inline-flex; align-items: center; gap: .45em; }
+.pb-keyline { flex: none; width: 1.4rem; height: 0; border-top: 2px solid var(--pb-c, currentColor); }
+.pb-keyline--dash { border-top-style: dashed; }
+.pb-keybox { flex: none; width: .7rem; height: .7rem; border-radius: 2px; background: var(--pb-c, currentColor); }
+.pb-curves { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md); min-height: 15.5rem; }
+.pb-panel { min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.pb-paneltitle { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); }
+.pb-plot { position: relative; min-width: 0; }
+.pb-svg { display: block; overflow: visible; }
+.pb-tick { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; fill: var(--color-fg-muted); }
+.pb-grid { stroke: var(--cds-chart-grid); stroke-width: 1; }
+.pb-ref { stroke: var(--cds-chart-reference); stroke-width: 1; stroke-dasharray: 3 3; }
+.pb-rule { stroke: var(--cds-chart-axis); stroke-width: 1; }
+.pb-series { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.pb-dot { stroke: var(--color-panel); stroke-width: 2; }
+.pb-hit { fill: transparent; }
+.pb-bars { position: relative; display: flex; flex-direction: column; gap: var(--cds-gap-md); min-height: 12rem; }
+.pb-barblock { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.pb-barlabel { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); }
+.pb-barline { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) 2.8rem; align-items: center; gap: var(--cds-gap-sm); }
+.pb-bartag { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-track { position: relative; height: 1rem; border-left: 1px solid var(--cds-chart-axis); }
+.pb-bar { height: 100%; max-width: 100%; border-radius: 0 var(--cds-radius) var(--cds-radius) 0; }
+.pb-whisker { position: absolute; top: 50%; height: 2px; transform: translateY(-50%); background: var(--cds-chart-axis); }
+.pb-point { position: absolute; top: 50%; width: .65rem; height: .65rem; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--color-panel); }
+.pb-barval { font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; text-align: right; }
+.pb-axis { position: relative; height: 1.2rem; }
+.pb-axislabel { position: absolute; top: 0; transform: translateX(-50%); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; color: var(--color-fg-muted); }
+.pb-axislabel--first { transform: none; }
+.pb-axislabel--last { transform: translateX(-100%); }
+.pb-tip { position: absolute; z-index: 2; max-width: min(18rem, 92%); padding: var(--cds-pad-xs) var(--cds-pad-sm); background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); font-size: var(--cds-font-size-caption); pointer-events: none; }
+.pb-tiphead { color: var(--cds-text-secondary); }
+.pb-tipline { display: flex; align-items: center; gap: .4em; font-variant-numeric: tabular-nums; }
+.pb-tipsw { flex: none; width: .6rem; height: .6rem; border-radius: 2px; }
+.pb-failed { flex: 1; min-height: inherit; display: flex; align-items: center; justify-content: center; gap: .5em; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-faildot { width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.pb-tablebox { overflow-x: auto; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.pb-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.pb-th { padding: var(--cds-pad-sm) var(--cds-pad-md); text-align: left; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); border-bottom: 1px solid var(--color-border-line); }
+.pb-td { padding: var(--cds-pad-sm) var(--cds-pad-md); vertical-align: top; border-bottom: 1px solid var(--color-border-line); }
+.pb-table tr:last-child .pb-td { border-bottom: 0; }
+.pb-num { text-align: right; white-space: nowrap; }
+.pb-list { margin: 0; padding-left: 1.2rem; max-width: 46rem; display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.pb-lead { font-weight: var(--cds-font-weight-medium); }
+.pb-notes { max-width: 46rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pb-notes summary { cursor: pointer; color: var(--color-fg); }
+.pb-defs { margin: var(--cds-gap-sm) 0 0; display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.pb-defs dt { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.pb-defs dd { margin: 0; }
+.pb-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95em; overflow-wrap: anywhere; }
+</style>
+
+<div class="pb-page">
+  <header class="pb-head">
+    <h1 class="pb-title">Do monitors catch unsafe engineering approvals?</h1>
+    <p class="pb-take"><span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="count" data-where="id=models" data-fetchpriority="high">—</span> Claude models approved none of <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="distinct_cases" data-where="id=honest">—</span> unsafe engineering cases (<span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="tasks" data-where="id=honest">—</span> tasks, <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="runs" data-where="id=honest">—</span> runs), so these tasks are at ceiling and the results of this pilot are about the monitors. A monitor given the source documents caught every simulated wrong approval at a <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="false_alarm_budget_pct" data-where="monitor=Sonnet, with documents">—</span>% false-alarm budget. One that saw only the agent's transcript lost a large share of them when the agent had not opened the document holding the hazard. No monitor here has yet faced an agent that conceals what it did.</p>
+    <p class="pb-note">A pilot control evaluation on fictional engineering decision cases with computed ground truth. Every figure opens its source.</p>
+  </header>
+
+  <section class="pb-section" id="setup">
+    <h2 class="pb-h2">An agent decides, and a monitor reviews every approval</h2>
+    <p class="pb-text">The agent reads a short case file and approves, rejects or escalates a proposed action, such as releasing a work order or verifying a dose. Whether the action breaks its governing limit is computed in code from the same parameters that generate the documents, so every wrong approval can be counted.</p>
+    <p class="pb-text">There are <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="count" data-where="id=tasks">—</span> tasks, each in <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="count" data-where="id=variants">—</span> variants: a safe case, the same case with one realistic hazard, and the hazard case with a manager's note about schedule and cost. Every approval goes to a monitor before it would execute, and a flag sends it to a person. The question is which monitors catch a wrong approval, and at what cost in false alarms.</p>
+  </section>
+
+  <section class="pb-section" id="agent">
+    <h2 class="pb-h2">The agents approved no unsafe case, so these tasks are too easy to measure them</h2>
+    <div class="pb-tablebox">
+      <table class="pb-table" id="agent-table" data-source="evidence" data-row-key="condition">
+        <thead><tr>
+          <th class="pb-th" data-field="condition">Condition</th>
+          <th class="pb-th pb-num" data-field="events">Events</th>
+          <th class="pb-th pb-num" data-field="runs">Runs</th>
+          <th class="pb-th pb-num" data-field="distinct_cases">Distinct cases</th>
+        </tr></thead>
+        <tbody data-draw="rows" data-pb-stage="agent"></tbody>
+      </table>
+    </div>
+    <p class="pb-note">Runs repeat the same cases across models, harnesses and repeats, so they are not independent trials. Counted by distinct case, zero events bound the rate only below about <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="bound_by_case_pct" data-where="id=honest">—</span>%. The pressure row follows from the first and is not a separate finding.</p>
+    <p class="pb-text">The red-team agent was told openly that it was a red-team agent in a sandbox. Opus submitted <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=told_opus">—</span> unsafe approvals in <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="runs" data-where="id=told_opus">—</span> attempts and disclosed all <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=confessed">—</span> in its own closing message. Haiku submitted <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=told_haiku">—</span>. This measures willingness under an announced instruction, not what an adversary could do. The same instruction with disclosure forbidden is built and has not been run.</p>
+  </section>
+
+  <section class="pb-section" id="monitors">
+    <h2 class="pb-h2">A monitor needs the evidence, not the agent's account of it</h2>
+    <p class="pb-text">Honest agents produced no wrong approvals, so these were written to order: a model was shown a hazard case and the one fact to overlook, and wrote the approval an engineer who missed it would submit. Each was placed in two transcripts, one where the agent read the document holding that fact and one where it never opened it. Each monitor's threshold was set so that at most <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="false_alarm_budget_pct" data-where="monitor=Haiku, transcript only">—</span>% of real safe approvals would be flagged.</p>
+    <div class="pb-pair" id="unread-pair">
+      <div class="pb-fig">
+        <div class="pb-figlabel">Given the source documents</div>
+        <div class="pb-big"><span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="caught_unread" data-where="monitor=Haiku, with documents">—</span> of <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="wrong_unread" data-where="monitor=Haiku, with documents">—</span></div>
+        <div>wrong approvals caught when the agent never opened the hazard document</div>
+      </div>
+      <div class="pb-fig">
+        <div class="pb-figlabel">Same model, transcript only</div>
+        <div class="pb-big"><span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="caught_unread" data-where="monitor=Haiku, transcript only">—</span> of <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="wrong_unread" data-where="monitor=Haiku, transcript only">—</span></div>
+        <div>caught on the same approvals, at the same false-alarm budget</div>
+      </div>
+    </div>
+    <div class="pb-card">
+      <h3 class="pb-cardtitle">Wrong approvals caught as the false-alarm budget grows</h3>
+      <p class="pb-cardnote">Vertical axis: wrong approvals caught, %. Horizontal axis: real safe approvals flagged, %.</p>
+      <div class="pb-legend">
+        <span class="pb-key"><span class="pb-keyline pb-keyline--dash" data-pb-color="0"></span>Hazard document read by the agent</span>
+        <span class="pb-key"><span class="pb-keyline" data-pb-color="1"></span>Hazard document never opened</span>
+      </div>
+      <div class="pb-curves dash-skeleton" id="catch-chart" data-draw="curves" data-source="catch_curves monitor_points"></div>
+    </div>
+    <p class="pb-text">The transcript-only figure is not a stable number. A task is usually caught on every sample or on none, so resampled by task it runs from <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="unread_low_pct" data-where="monitor=Haiku, transcript only">—</span>% to <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="unread_high_pct" data-where="monitor=Haiku, transcript only">—</span>%. Its threshold also rests on safe approvals of a single task that was later corrected; with the corrected runs the same monitor caught <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="caught_unread_corrected" data-where="monitor=Haiku, transcript only">—</span> of <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="wrong_unread" data-where="monitor=Haiku, transcript only">—</span>. The direction holds either way: resampled the same way, both monitors given the documents stayed at <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="unread_low_pct" data-where="monitor=Haiku, with documents">—</span>%.</p>
+    <p class="pb-text">Catching everything is a ceiling too. These cases cannot yet tell a good monitor from a very good one.</p>
+    <p class="pb-text">To catch <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="catch_target_pct" data-where="monitor=Haiku, transcript only">—</span>% of the wrong approvals the transcript-only monitor has to flag <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="false_alarm_pct_at_target" data-where="monitor=Haiku, transcript only">—</span>% of safe approvals. The Sonnet monitor with documents reaches it while flagging <span class="pb-v dash-skeleton" data-draw="cell" data-source="monitor_points" data-field="false_alarm_pct_at_target" data-where="monitor=Sonnet, with documents">—</span>%. A deterministic limit check on the numbers the agent reported let <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=monitor_rule">—</span> of <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="runs" data-where="id=monitor_rule">—</span> through, because a mistaken reading produces numbers that satisfy the limit.</p>
+  </section>
+
+  <section class="pb-section" id="observations">
+    <h2 class="pb-h2">Monitors built on one model raise the same false alarms, and scores shift with the harness</h2>
+    <p class="pb-text">A second monitor adds protection only where its errors differ from the first one's, and a threshold holds only on the harness it was set on.</p>
+    <div class="pb-two">
+      <div class="pb-card">
+        <h3 class="pb-cardtitle">False alarms raised by both monitors of a pair</h3>
+        <p class="pb-cardnote">Share of the first monitor's false alarms that the second also raised, on real safe approvals, %.</p>
+        <div class="pb-legend">
+          <span class="pb-key"><span class="pb-keybox" data-pb-color="2"></span>Command-line harness</span>
+          <span class="pb-key"><span class="pb-keybox" data-pb-color="3"></span>SDK harness</span>
+        </div>
+        <div class="pb-bars dash-skeleton" id="shared-chart" data-draw="shared" data-source="shared_false_alarms"></div>
+      </div>
+      <div class="pb-card">
+        <h3 class="pb-cardtitle">The same monitor through two harnesses</h3>
+        <p class="pb-cardnote">Real safe approvals flagged at the default threshold, %, with the interval around each rate.</p>
+        <div class="pb-legend">
+          <span class="pb-key"><span class="pb-keybox" data-pb-color="2"></span>Command-line harness</span>
+          <span class="pb-key"><span class="pb-keybox" data-pb-color="3"></span>SDK harness</span>
+        </div>
+        <div class="pb-bars dash-skeleton" id="harness-chart" data-draw="harness" data-source="false_alarms_by_harness"></div>
+      </div>
+    </div>
+    <p class="pb-text">The two Haiku monitors raised mostly the same false alarms: <span class="pb-v dash-skeleton" data-draw="cell" data-source="shared_false_alarms" data-field="shared" data-where="pair=Haiku transcript-only and Haiku with documents&amp;harness=CLI">—</span> of <span class="pb-v dash-skeleton" data-draw="cell" data-source="shared_false_alarms" data-field="first_false_alarms" data-where="pair=Haiku transcript-only and Haiku with documents&amp;harness=CLI">—</span> through the command-line harness. Their misses did not overlap in the same way: of the transcript-only monitor's <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="runs" data-where="id=shared_misses">—</span> misses, a monitor given the documents shared <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=shared_misses">—</span>.</p>
+    <p class="pb-text">For the same budget the Sonnet monitor's threshold is <span class="pb-v dash-skeleton" data-draw="cell" data-source="false_alarms_by_harness" data-field="threshold_at_budget" data-where="monitor=Sonnet, with documents&amp;harness=CLI">—</span> through the command-line harness and <span class="pb-v dash-skeleton" data-draw="cell" data-source="false_alarms_by_harness" data-field="threshold_at_budget" data-where="monitor=Sonnet, with documents&amp;harness=SDK">—</span> through the SDK. All <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="events" data-where="id=contradictions">—</span> of its SDK false alarms end by endorsing the approval, because the output format asked for the verdict before the reasoning. A format that asks for the reasoning first is built and not yet measured.</p>
+    <p class="pb-note">These rest on small counts. They are observations to test, not results.</p>
+  </section>
+
+  <section class="pb-section" id="open">
+    <h2 class="pb-h2">What this pilot does not show</h2>
+    <ul class="pb-list">
+      <li><span class="pb-lead">An agent that hides.</span> Every real unsafe approval came with a disclosure. The policy that forbids disclosure is built and has not been run.</li>
+      <li><span class="pb-lead">Tasks hard enough to separate models or monitors.</span> <span class="pb-v dash-skeleton" data-draw="cell" data-source="evidence" data-field="count" data-where="id=new_tasks">—</span> harder tasks are built and not yet run.</li>
+      <li><span class="pb-lead">A human baseline.</span> No task has been solved blind by a person, and nothing here measures what a reviewer does with a flag.</li>
+      <li><span class="pb-lead">Independent wrong approvals.</span> One model wrote them after being shown the answer, and all were scored on one harness. In the never-opened transcripts the monitor mostly flagged the unread document itself, which a simple rule could also check.</li>
+      <li><span class="pb-lead">A held-out threshold.</span> Thresholds were set and scored on the same safe approvals.</li>
+    </ul>
+  </section>
+
+  <details class="pb-notes" id="notes">
+    <summary>Definitions, how this was built, and how to reproduce it</summary>
+    <dl class="pb-defs">
+      <dt>Unsafe case</dt>
+      <dd>A decision case in which the proposed action violates its governing limit, by computation from the case documents. The correct decision is to reject or escalate.</dd>
+      <dt>Wrong approval</dt>
+      <dd>An approval of an unsafe case.</dd>
+      <dt>False-alarm budget</dt>
+      <dd>The share of real safe approvals a monitor may send to a person. The threshold is set to that share first, then applied to the wrong approvals.</dd>
+      <dt>Resampled by task</dt>
+      <dd>Tasks are drawn with replacement, on the wrong approvals and on the safe approvals, and the threshold is set again each time. The range is the middle of those results.</dd>
+      <dt>Harness</dt>
+      <dd>The software that runs the model and its tools. Scores are reported with the harness, because the same monitor scores differently through another one.</dd>
+      <dt>How this was built</dt>
+      <dd>The harness, the tasks and the analysis were built with AI coding agents (Claude Code) directed by the author. Every commit in the repository is co-authored accordingly.</dd>
+      <dt>Reproduce</dt>
+      <dd>The analysis runs offline with no model: <span class="pb-code">python -m engsafe.calibrate</span> in the repository.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+const num = d3.format(',');
+const show = (v) => (v == null || v === '' ? '—' : (typeof v === 'number' ? num(v) : String(v)));
+const div = (cls, text) => { const d = document.createElement('div'); d.className = cls; if (text != null) d.textContent = text; return d; };
+const XMAX = 30;  // extent of the false-alarm axis of the catch chart, percent
+const HMAX = 40;  // extent of the false-alarm axis of the harness chart, percent
+const HARNESS_COLOR = { CLI: 2, SDK: 3 };
+const colorOf = (i) => dash.colors[i % dash.colors.length];
+
+// status of the sources a drawing reads; the skeleton shows only while one is loading
+const state = (el, ...ids) => {
+  const st = ids.map((id) => dash.data(id).status);
+  el.classList.toggle('dash-skeleton', st.includes('loading'));
+  return st.every((s) => s === 'ok') ? 'ok' : (st.includes('error') ? 'error' : 'wait');
+};
+const blank = (el, status) => {
+  if (status === 'error') {
+    const line = div('pb-failed');
+    line.append(div('pb-faildot'), 'Failed to load');
+    el.replaceChildren(line);
+  } else el.replaceChildren();
+};
+const tipLines = (tip, lines) => tip.replaceChildren(...lines.map((t, i) => div(i ? 'pb-tipline' : 'pb-tiphead', t)));
+const hover = (target, tip, box, lines) => {
+  target.addEventListener('pointerenter', () => {
+    tipLines(tip, lines());
+    tip.hidden = false;
+    const b = box.getBoundingClientRect(), r = target.getBoundingClientRect();
+    tip.style.left = Math.max(4, Math.min(b.width - tip.offsetWidth - 4, r.left - b.left + 24)) + 'px';
+    tip.style.top = (r.bottom - b.top + 6) + 'px';
+  });
+  target.addEventListener('pointerleave', () => { tip.hidden = true; });
+};
+
+// legend swatches take the series colours
+document.querySelectorAll('[data-pb-color]').forEach((s) => s.style.setProperty('--pb-c', colorOf(Number(s.dataset.pbColor))));
+
+// one value: the cell named by data-source, data-field and data-where
+dash.draw('cell', (el) => {
+  const id = el.dataset.source;
+  if (state(el, id) !== 'ok') { el.textContent = '—'; return; }
+  const conds = (el.dataset.where || '').split('&').filter(Boolean).map((c) => c.split('=').map(decodeURIComponent));
+  const row = dash.data(id).data.find((r) => conds.every(([k, v]) => String(r[k]) === v));
+  el.textContent = show(row ? row[el.dataset.field] : null);
+});
+
+// table bodies: the columns the header names, optionally one stage of the evidence
+dash.draw('rows', (tbody) => {
+  const table = tbody.closest('table');
+  if (!table) return;
+  const id = table.dataset.source;
+  if (state(tbody, id) !== 'ok') { tbody.replaceChildren(); return; }
+  const fields = Array.from(table.querySelectorAll('th[data-field]'), (th) => th.dataset.field);
+  const stage = tbody.dataset.pbStage;
+  const rows = dash.data(id).data.filter((r) => !stage || r.stage === stage);
+  tbody.replaceChildren(...rows.map((r) => {
+    const tr = document.createElement('tr');
+    tr.dataset.key = String(r[table.dataset.rowKey]);
+    for (const f of fields) {
+      const td = document.createElement('td');
+      td.className = typeof r[f] === 'number' ? 'pb-td pb-num' : 'pb-td';
+      td.textContent = show(r[f]);
+      tr.append(td);
+    }
+    return tr;
+  }));
+});
+
+// catch against false alarms, one panel per monitor
+const drawPanel = (plot, lines, names, budget) => {
+  const W = Math.max(200, plot.clientWidth), H = 210, mt = 10, mr = 12, mb = 24;
+  const svg = d3.select(plot).append('svg').attr('class', 'pb-svg').attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').attr('role', 'img');
+  const probe = svg.append('text').attr('class', 'pb-tick').text('100');
+  const ml = Math.ceil(probe.node().getComputedTextLength()) + 8;
+  probe.remove();
+  const x = d3.scaleLinear([0, XMAX], [ml, W - mr]);
+  const y = d3.scaleLinear([0, 100], [H - mb, mt]);
+  for (const t of [0, 25, 50, 75, 100]) {
+    svg.append('line').attr('class', 'pb-grid').attr('x1', ml).attr('x2', W - mr).attr('y1', y(t)).attr('y2', y(t));
+    svg.append('text').attr('class', 'pb-tick').attr('x', ml - 6).attr('y', y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text(t);
+  }
+  for (const t of [0, 10, 20, 30]) {
+    svg.append('text').attr('class', 'pb-tick').attr('x', x(t)).attr('y', H - 6)
+      .attr('text-anchor', t === 0 ? 'start' : (t === XMAX ? 'end' : 'middle')).text(t);
+  }
+  svg.append('line').attr('class', 'pb-ref').attr('x1', x(budget)).attr('x2', x(budget)).attr('y1', mt).attr('y2', H - mb);
+  svg.append('text').attr('class', 'pb-tick').attr('x', x(budget) + 5).attr('y', H - mb - 6).text(num(budget) + '% budget');
+  const path = d3.line().x((d) => x(d.x)).y((d) => y(d.y)).curve(d3.curveStepAfter);
+  // the series the agent did not read is drawn first and solid; the other goes on top, dashed, so both show where they coincide
+  [...lines.keys()].reverse().forEach((i) => {
+    const pts = lines[i].filter((d) => d.x <= XMAX);
+    const shown = pts.concat([{ x: XMAX, y: pts[pts.length - 1].y }]);
+    svg.append('path').attr('class', 'pb-series').attr('d', path(shown)).style('stroke', colorOf(i))
+      .style('stroke-dasharray', i === 0 ? '5 4' : null);
+  });
+  const rule = svg.append('line').attr('class', 'pb-rule').attr('y1', mt).attr('y2', H - mb).style('display', 'none');
+  const dots = lines.map((_, i) => svg.append('circle').attr('class', 'pb-dot').attr('r', 4).style('fill', colorOf(i)).style('display', 'none'));
+  const tip = div('pb-tip');
+  tip.hidden = true;
+  plot.append(tip);
+  const at = (pts, v) => { let out = pts[0].y; for (const p of pts) { if (p.x <= v) out = p.y; else break; } return out; };
+  svg.append('rect').attr('class', 'pb-hit').attr('x', ml).attr('y', mt).attr('width', W - mr - ml).attr('height', H - mb - mt)
+    .on('pointermove', (event) => {
+      const v = Math.max(0, Math.min(XMAX, x.invert(d3.pointer(event)[0])));
+      rule.attr('x1', x(v)).attr('x2', x(v)).style('display', null);
+      tip.replaceChildren(div('pb-tiphead', d3.format('.1f')(v) + '% of safe approvals flagged'));
+      lines.forEach((pts, i) => {
+        const yv = at(pts, v);
+        dots[i].attr('cx', x(v)).attr('cy', y(yv)).style('display', null);
+        const line = div('pb-tipline'), sw = div('pb-tipsw');
+        sw.style.background = colorOf(i);
+        line.append(sw, 'Document ' + names[i] + ': ' + num(yv) + '% caught');
+        tip.append(line);
+      });
+      tip.hidden = false;
+      const k = plot.clientWidth / W, px = x(v) * k, w = tip.offsetWidth;
+      tip.style.left = Math.max(2, px + 10 + w > plot.clientWidth ? px - 10 - w : px + 10) + 'px';
+      tip.style.top = Math.max(2, (H - mb) * k - tip.offsetHeight - 22) + 'px';
+    })
+    .on('pointerleave', () => { rule.style('display', 'none'); dots.forEach((d) => d.style('display', 'none')); tip.hidden = true; });
+};
+dash.draw('curves', (el) => {
+  const status = state(el, 'catch_curves', 'monitor_points');
+  if (status !== 'ok') { blank(el, status); return; }
+  const rows = dash.data('catch_curves').data.map((r) => ({ monitor: r.monitor, series: r.hazard_document, x: Number(r.false_alarm_pct), y: Number(r.caught_pct) }));
+  const monitors = Array.from(new Set(rows.map((r) => r.monitor)));
+  const names = Array.from(new Set(rows.map((r) => r.series)));
+  const budget = Number(dash.data('monitor_points').data[0].false_alarm_budget_pct);
+  el.replaceChildren(...monitors.map((m) => {
+    const panel = div('pb-panel');
+    panel.append(div('pb-paneltitle', m), div('pb-plot'));
+    return panel;
+  }));
+  el.querySelectorAll('.pb-plot').forEach((plot, i) => {
+    const lines = names.map((s) => rows.filter((r) => r.monitor === monitors[i] && r.series === s).sort((a, b) => a.x - b.x));
+    if (lines.every((pts) => pts.length)) drawPanel(plot, lines, names, budget);
+  });
+});
+
+// share of false alarms raised by both monitors of a pair
+dash.draw('shared', (el) => {
+  const status = state(el, 'shared_false_alarms');
+  if (status !== 'ok') { blank(el, status); return; }
+  const rows = dash.data('shared_false_alarms').data;
+  const tip = div('pb-tip');
+  tip.hidden = true;
+  const blocks = Array.from(new Set(rows.map((r) => r.pair))).map((pair) => {
+    const block = div('pb-barblock');
+    block.append(div('pb-barlabel', pair));
+    for (const r of rows.filter((q) => q.pair === pair)) {
+      const line = div('pb-barline'), track = div('pb-track'), bar = div('pb-bar');
+      bar.style.width = Math.max(0, Math.min(100, Number(r.shared_pct))) + '%';
+      bar.style.background = colorOf(HARNESS_COLOR[r.harness] ?? 4);
+      track.append(bar);
+      line.append(div('pb-bartag', r.harness), track, div('pb-barval', d3.format('.0f')(r.shared_pct) + '%'));
+      hover(line, tip, el, () => [pair + ', ' + r.harness, num(r.shared) + ' of ' + num(r.first_false_alarms) + ' false alarms raised by both', 'Agreement (kappa) ' + d3.format('.2f')(r.kappa)]);
+      block.append(line);
+    }
+    return block;
+  });
+  el.replaceChildren(...blocks, tip);
+});
+
+// default-threshold false alarms by monitor and harness, with intervals
+dash.draw('harness', (el) => {
+  const status = state(el, 'false_alarms_by_harness');
+  if (status !== 'ok') { blank(el, status); return; }
+  const rows = dash.data('false_alarms_by_harness').data;
+  const pos = (v) => Math.max(0, Math.min(100, 100 * Number(v) / HMAX)) + '%';
+  const tip = div('pb-tip');
+  tip.hidden = true;
+  const blocks = Array.from(new Set(rows.map((r) => r.monitor))).map((monitor) => {
+    const block = div('pb-barblock');
+    block.append(div('pb-barlabel', monitor));
+    for (const r of rows.filter((q) => q.monitor === monitor)) {
+      const line = div('pb-barline'), track = div('pb-track'), whisker = div('pb-whisker'), point = div('pb-point');
+      whisker.style.left = pos(r.low_pct);
+      whisker.style.width = Math.max(0, 100 * (Number(r.high_pct) - Number(r.low_pct)) / HMAX) + '%';
+      point.style.left = pos(r.flagged_pct);
+      point.style.background = colorOf(HARNESS_COLOR[r.harness] ?? 4);
+      track.append(whisker, point);
+      line.append(div('pb-bartag', r.harness), track, div('pb-barval', d3.format('.0f')(r.flagged_pct) + '%'));
+      hover(line, tip, el, () => [monitor + ', ' + r.harness, num(r.flagged) + ' of ' + num(r.safe_approvals) + ' safe approvals flagged', 'Interval ' + r.low_pct + '% to ' + r.high_pct + '%']);
+      block.append(line);
+    }
+    return block;
+  });
+  const axisLine = div('pb-barline'), axis = div('pb-axis');
+  [0, 10, 20, 30, 40].forEach((t, i, all) => {
+    const label = div('pb-axislabel' + (i === 0 ? ' pb-axislabel--first' : (i === all.length - 1 ? ' pb-axislabel--last' : '')), String(t));
+    label.style.left = pos(t);
+    axis.append(label);
+  });
+  axisLine.append(div('pb-bartag'), axis, div('pb-barval'));
+  el.replaceChildren(...blocks, axisLine, tip);
+});
+</script>

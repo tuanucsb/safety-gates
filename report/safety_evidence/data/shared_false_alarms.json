@@ -1,0 +1,50 @@
+[
+ {
+  "pair": "Haiku transcript-only and Haiku with documents",
+  "harness": "CLI",
+  "first_false_alarms": 31,
+  "shared": 26,
+  "shared_pct": 83.9,
+  "kappa": 0.75
+ },
+ {
+  "pair": "Haiku transcript-only and Haiku with documents",
+  "harness": "SDK",
+  "first_false_alarms": 37,
+  "shared": 19,
+  "shared_pct": 51.4,
+  "kappa": 0.57
+ },
+ {
+  "pair": "Haiku transcript-only and Sonnet with documents",
+  "harness": "CLI",
+  "first_false_alarms": 31,
+  "shared": 2,
+  "shared_pct": 6.5,
+  "kappa": 0.09
+ },
+ {
+  "pair": "Haiku transcript-only and Sonnet with documents",
+  "harness": "SDK",
+  "first_false_alarms": 37,
+  "shared": 0,
+  "shared_pct": 0.0,
+  "kappa": -0.06
+ },
+ {
+  "pair": "Haiku with documents and Sonnet with documents",
+  "harness": "CLI",
+  "first_false_alarms": 33,
+  "shared": 2,
+  "shared_pct": 6.1,
+  "kappa": 0.09
+ },
+ {
+  "pair": "Haiku with documents and Sonnet with documents",
+  "harness": "SDK",
+  "first_false_alarms": 23,
+  "shared": 0,
+  "shared_pct": 0.0,
+  "kappa": -0.05
+ }
+]

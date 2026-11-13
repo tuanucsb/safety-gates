@@ -1,0 +1,5 @@
+anthropic>=2.4
+mcp>=2.3
+pydantic>=2
+pytest>=8
+matplotlib>=3.8

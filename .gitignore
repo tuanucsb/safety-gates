@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+results/offline/
+results/smoke/
+.env
+.venv/
+*.egg-info/
+.DS_Store

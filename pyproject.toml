@@ -1,0 +1,9 @@
+[project]
+name = "engsafe"
+version = "0.1.0"
+description = "Pilot benchmark: monitoring AI agents on safety-critical engineering tasks"
+requires-python = ">=3.10"
+dependencies = ["anthropic>=2.4", "mcp>=2.3", "pydantic>=2", "matplotlib>=3.8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
