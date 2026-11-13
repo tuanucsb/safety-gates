@@ -112,7 +112,8 @@ solved blind by a person.
 
 ## Licence
 
-No licence has been chosen yet. Until a licence file is added, all rights are reserved.
+The code, task definitions, results and documents in this repository are released under the MIT licence. See
+`LICENSE`.
 
 ## Author
 
